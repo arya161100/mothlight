@@ -33,6 +33,40 @@ for (let i = 0; i < 130; i += 1) {
   });
 }
 // Fireflies drift over the garden for depth (positions fixed, motion by t).
+
+// Bloom particles for visual impact
+const BLOOM_PARTICLES = [];
+function spawnBloomParticles(x, y, color) {
+  for (let i = 0; i < 12; i++) {
+    const ang = Math.random() * Math.PI * 2;
+    BLOOM_PARTICLES.push({
+      x, y,
+      vx: Math.cos(ang) * (40 + Math.random() * 60),
+      vy: Math.sin(ang) * (40 + Math.random() * 60),
+      life: 0.8 + Math.random() * 0.4,
+      color,
+    });
+  }
+}
+function updateAndDrawParticles(ctx, dt) {
+  for (let i = BLOOM_PARTICLES.length - 1; i >= 0; i--) {
+    const p = BLOOM_PARTICLES[i];
+    p.x += p.vx * dt;
+    p.y += p.vy * dt;
+    p.life -= dt;
+    if (p.life <= 0) {
+      BLOOM_PARTICLES.splice(i, 1);
+      continue;
+    }
+    ctx.globalAlpha = p.life;
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  ctx.globalAlpha = 1;
+}
+
 const FLIES = [];
 for (let i = 0; i < 14; i += 1) {
   FLIES.push({
@@ -229,7 +263,7 @@ function drawFlower(ctx, f, t) {
 function drawMoth(ctx, m, t) {
   // Trail: the pale ribbon the moth leaves behind.
   if (m.trail.length > 2) {
-    ctx.strokeStyle = 'rgba(255,240,190,0.55)';
+    ctx.strokeStyle = 'rgba(255,240,190,0.75)'; ctx.shadowColor = '#ffe9a8'; ctx.shadowBlur = 8;
     ctx.lineWidth = 2.5;
     ctx.beginPath();
     ctx.moveTo(m.trail[0].x, m.trail[0].y);

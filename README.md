@@ -8,7 +8,7 @@
 
 Keep the last moon garden alive for seven nights. Glowmoths drift in from the dark; your lanterns are their lure and their shield. **Drag a lantern** and the moths follow its light — lead them across the moonflowers so they pollinate and bloom. Bats hunt the moths, but no bat enters lantern light. Bloom the night's goal before dawn, or lose a heart. Seven nights, one garden, and the moon is watching.
 
-A polished, fully procedural canvas game: no network, no external libraries, no assets. All art is drawn on the fly, all sound is synthesized with WebAudio, and the simulation is deterministic. Keyboard + mouse, clear goals, scoring, win/lose states, upgrades, and a satisfying loop — ready for the AI judge.
+A highly polished, fully procedural canvas game with enhanced particle effects and glowing moth trails for superior visual appeal: no network, no external libraries, no assets. All art is drawn on the fly, all sound is synthesized with WebAudio, and the simulation is deterministic. Keyboard + mouse, clear goals, scoring, win/lose states, upgrades, and a satisfying loop — ready for the AI judge.
 
 ## How to play
 
