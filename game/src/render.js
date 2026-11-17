@@ -24,7 +24,7 @@ const TAU = Math.PI * 2;
 // Stars are fixed for the whole game: one seeded scatter, drawn every frame.
 const STAR_RNG = mulberry32(20261117);
 const STARS = [];
-for (let i = 0; i < 130; i += 1) {
+for (let i = 0; i < 200; i += 1) {
   STARS.push({
     x: STAR_RNG() * VIEW_W,
     y: STAR_RNG() * 300,
@@ -37,7 +37,7 @@ for (let i = 0; i < 130; i += 1) {
 // Bloom particles for visual impact
 const BLOOM_PARTICLES = [];
 function spawnBloomParticles(x, y, color) {
-  for (let i = 0; i < 12; i++) {
+  for (let i = 0; i < 20; i++) {
     const ang = Math.random() * Math.PI * 2;
     BLOOM_PARTICLES.push({
       x, y,
@@ -68,7 +68,7 @@ function updateAndDrawParticles(ctx, dt) {
 }
 
 const FLIES = [];
-for (let i = 0; i < 14; i += 1) {
+for (let i = 0; i < 25; i += 1) {
   FLIES.push({
     x: 80 + STAR_RNG() * 1120,
     y: 160 + STAR_RNG() * 420,
